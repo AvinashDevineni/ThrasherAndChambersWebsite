@@ -1,11 +1,24 @@
+const compoundFrequencyInput = document.getElementById('compoundingFrequency');
 document.getElementById("calculate").addEventListener("click", compoundInterest);
 
-// Compound Interest Calculator Function with Input Validation
+function getCompoundingFrequency() {
+    switch (compoundFrequencyInput.value) {
+        case 'daily':
+            return 365;
+        case 'monthly':
+            return 12;
+        case 'quarterly':
+            return 4;
+        case 'yearly':
+            return 1;
+    }
+}
+
 function compoundInterest() {
     const principal = parseFloat(document.getElementById("principal").value);
     const interestRate = parseFloat(document.getElementById("interest").value);
     const years = parseFloat(document.getElementById("years").value);
-    const compoundingFrequency = parseFloat(document.getElementById("compoundingFrequency").value);
+    const compoundingFrequency = getCompoundingFrequency();
 
     // Validate inputs
     if (principal < 0) {
@@ -23,11 +36,6 @@ function compoundInterest() {
         return;
     }
 
-    if (compoundingFrequency <= 0) {
-        document.getElementById("result").textContent = "Compounding frequency must be > 0";
-        return;
-    }
-
     // Convert interest rate percentage --> decimal
     const decimalInterestRate = parseFloat(interestRate) / 100;
 
@@ -36,4 +44,3 @@ function compoundInterest() {
 
     document.getElementById("result").textContent = `Final Amount: $${amount.toFixed(2)}`;
 }
-// End of Compound Interest Calculator Function
