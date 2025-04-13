@@ -1,4 +1,9 @@
-/* ===== GLOBAL STYLES ===== */
+:root {
+  --neutral: #343434;
+  --highlight-1: #0085CF;
+  --heading: #0C3274;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,446 +11,139 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
   color: #333;
-  line-height: 1.5;
-  background-color: #fff;
+  background: #fff;
 }
 
-/* ===== NAVIGATION ===== */
-.main-header {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: #f5f5f5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.navbar ul {
+h1, h2 {
+  color: var(--heading);
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
   display: flex;
   list-style: none;
-  justify-content: center;
-  padding: 1rem;
+  gap: 25px;
 }
 
-.navbar li {
-  margin: 0 1rem;
-}
-
-.navbar a {
+nav a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
-  transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-  color: #0074d9;
+nav a:hover {
+  color: #007bff;
 }
 
-/* ===== HERO SECTION ===== */
-.hero-section {
-  background: url('hero-background.jpg') center center/cover no-repeat;
-  padding: 5rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.hero {
   text-align: center;
+  padding: 80px 20px 40px;
+  background: #ffffff;
 }
 
-.hero-content {
-  background-color: rgba(255, 255, 255, 0.8);
-  display: inline-block;
-  padding: 2rem;
-  border-radius: 5px;
-  max-width: 700px;
-}
-
-.hero-content h1 {
+.hero h1 {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  max-width: 800px;
+  margin: 0 auto 20px;
 }
 
-.hero-content p {
-  font-size: 1.1rem;
-  line-height: 1.5;
+.hero-buttons {
+  margin-top: 20px;
 }
 
-/* ===== PARTNERS SECTION ===== */
-.partners-section {
-  text-align: center;
-  padding: 3rem 1rem;
-  background-color: #f8f8f8;
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0 10px;
+  display: inline-block;
 }
 
-.partners-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
+.btn.primary {
+  background-color: #007bff;
+  color: white;
 }
 
-.logos-container {
+.btn.secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.features {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-}
-
-.logos-container img {
-  max-width: 120px;
-  height: auto;
-  filter: grayscale(50%);
-  transition: filter 0.3s ease;
-}
-
-.logos-container img:hover {
-  filter: grayscale(0%);
-}
-
-/* ===== DISCLOSURES SECTION ===== */
-.disclosures-section {
-  padding: 3rem 1rem;
-  text-align: center;
-}
-
-.disclosures-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-}
-
-.disclosures-items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.disclosure-item {
-  width: 120px;
-  text-align: center;
-}
-
-.disclosure-item img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-/* ===== INVESTMENT PHILOSOPHY SECTION ===== */
-.investment-philosophy {
-  padding: 4rem 1rem;
+  gap: 50px;
+  padding: 50px 20px;
   background-color: #fafafa;
 }
 
-.philosophy-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.investment-philosophy h2 {
+.feature-box {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 3rem;
+  max-width: 300px;
 }
 
-.philosophy-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2rem;
+.feature-box img {
+  height: 50px;
+  margin-bottom: 15px;
 }
 
-/* Pyramid graphic container */
-.pyramid-graphic {
-  flex: 1 1 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#services {
+  padding: 60px 40px;
+  background: #ffffff;
 }
 
-.pyramid-graphic img {
-  width: 100%; 
-  max-width: 400px;
-  height: auto;
-  display: block;
-}
-
-/* Pyramid details */
-.pyramid-details {
-  flex: 1 1 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.pyramid-level h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #1a1a1a;
-}
-
-.pyramid-level p {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #555;
-}
-
-/* ===== WHAT WE OFFER SECTION ===== */
-.what-we-offer {
-  padding: 4rem 1rem;
-  background-color: #fff;
-}
-
-.offer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-
-.offer-image,
-.offer-text {
-  flex: 1 1 300px;
-}
-
-.offer-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 4px;
-}
-
-.offer-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #1a1a1a;
-}
-
-.offer-text p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #555;
-}
-
-/* ===== INTRO SECTION ===== */
-.intro-section {
-  background-color: #f7f7f7;
-  padding: 4rem 1rem;
-}
-
-.intro-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-}
-
-.intro-image, 
-.intro-text {
-  flex: 1 1 300px;
-}
-
-.intro-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  display: block;
-}
-
-.intro-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.intro-text p {
-  margin-bottom: 1rem;
-  color: #555;
-}
-
-/* ===== MEET THE TEAM SECTION ===== */
-.meet-the-team {
-  padding: 4rem 1rem;
+#services h2 {
   text-align: center;
-  background-color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 40px;
 }
 
-.meet-the-team h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.team-subheading {
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* Team grid */
-.team-grid {
-  max-width: 1200px;
-  margin: 0 auto;
+.service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
-/* Team member enhancements */
-.team-member {
-  background-color: #fafafa;
-  border-radius: 4px;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: var(--neutral);
 }
 
-.team-member:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
+.card h3 {
+  margin-bottom: 15px;
+  color: var(--highlight-1);
 }
 
-.team-member img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 3px solid #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+.card ul {
+  margin-top: 10px;
+  padding-left: 20px;
 }
 
-.member-bio {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  color: #666;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.3s ease;
+.card li {
+  margin-bottom: 10px;
 }
 
-.team-member:hover .member-bio {
-  height: auto;
-  opacity: 1;
-  padding-top: 1rem;
+#smart-investments-card {
+  grid-column: span 2;
 }
-
-/* ===== BOTTOM SECTION FOOTER ===== */
-.bottom-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  background-color: #f8f8f8;
-  padding: 2rem 1rem;
-  gap: 2rem;
-}
-
-/* Map embed */
-.map-container {
-  flex: 1 1 600px;
-  min-width: 300px;
-  text-align: center;
-}
-
-/* Footer info */
-.footer-info {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-}
-
-/* Address & disclosures */
-.address-disclosure {
-  font-size: 1rem;
-}
-
-.address-disclosure h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
-.address-disclosure p {
-  line-height: 1.4;
-  color: #666;
-}
-
-/* Compliance logos */
-.compliance-logos {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.compliance-logos img {
-  height: 40px;
-  max-width: 120px;
-  object-fit: contain;
-}
-
-.compliance-logos a {
-  display: inline-block;
-}
-
-/* ===== FOOTER ===== */
-.main-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.main-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* ===== MEDIA QUERIES ===== */
-@media (max-width: 768px) {
-  /* Philosophy section */
-  .philosophy-content,
-  .offer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .pyramid-details,
-  .offer-text {
-    margin-top: 1rem;
-  }
-
-  /* Intro section */
-  .intro-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .intro-text {
-    margin-top: 1rem;
-  }
-
-  /* Footer section */
-  .bottom-section {
-    flex-direction: column;
-  }
-  
-  .footer-info {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .compliance-logos {
-    justify-content: center;
-  }
-}
-
