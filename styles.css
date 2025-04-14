@@ -147,3 +147,62 @@ nav a:hover {
 #smart-investments-card {
   grid-column: span 2;
 }
+
+#about-us {
+  padding: 60px 40px;
+  background: #fafafa;
+  text-align: center;
+}
+
+#about-us h2 {
+  font-size: 2rem;
+  color: var(--heading);
+  margin-bottom: 10px;
+}
+
+.about-subheading {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.about-description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  color: var(--neutral);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.team-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.team-img {
+  width: 100%;
+  max-width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  margin: 0px;
+  color: var(--highlight-1);
+}
+
+.team-card .title {
+  color: var(--neutral);
+  font-size: 0.95rem;
+  margin: 0px;
+}
