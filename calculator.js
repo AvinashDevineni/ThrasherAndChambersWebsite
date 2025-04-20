@@ -1,4 +1,5 @@
 const compoundFrequencyInput = document.getElementById('compoundingFrequency');
+const result = document.getElementById("result");
 document.getElementById("calculate").addEventListener("click", compoundInterest);
 
 function getCompoundingFrequency() {
@@ -9,7 +10,7 @@ function getCompoundingFrequency() {
             return 12;
         case 'quarterly':
             return 4;
-        case 'yearly':
+        case 'annually':
             return 1;
     }
 }
@@ -20,19 +21,24 @@ function compoundInterest() {
     const years = parseFloat(document.getElementById("years").value);
     const compoundingFrequency = getCompoundingFrequency();
 
+    if (isNaN(principal) || isNaN(interestRate) || isNaN(years)) {
+        result.textContent = 'Enter numbers for all fields';
+        return;
+    }
+
     // Validate inputs
     if (principal < 0) {
-        document.getElementById("result").textContent = "Principal cannot be negative";
+        result.textContent = "Principal cannot be negative";
         return;
     }
 
     if (interestRate < 0) {
-        document.getElementById("result").textContent = "Interest rate cannot be negative";
+        result.textContent = "Interest rate cannot be negative";
         return;
     }
 
     if (years < 0) {
-        document.getElementById("result").textContent = "Years cannot be negative";
+        result.textContent = "Years cannot be negative";
         return;
     }
 
@@ -42,5 +48,5 @@ function compoundInterest() {
     // Calculate with A = P(1 + r/n)^(nt)
     const amount = principal * Math.pow(1 + (decimalInterestRate / compoundingFrequency), compoundingFrequency * years);
 
-    document.getElementById("result").textContent = `Final Amount: $${amount.toFixed(2)}`;
+    result.textContent = `Final Amount: $${amount.toFixed(2)}`;
 }
