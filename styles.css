@@ -3,7 +3,6 @@
   --primary: #0054a6;
   --primary-light: #1a75c4;
   --primary-dark: #003b73;
-  --accent: #32a852;
   --dark: #1e293b;
   --light: #f8fafc;
   --neutral-100: #f1f5f9;
@@ -124,7 +123,7 @@ nav a.active::after {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  height: 110vh;
   min-height: 600px;
   display: flex;
   flex-direction: column;
@@ -134,7 +133,11 @@ nav a.active::after {
   padding: 80px 20px 40px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--light), var(--neutral-100));
+}
+
+.hero * {
+  position: relative;
+  z-index: 3;
 }
 
 .hero::before {
@@ -144,10 +147,23 @@ nav a.active::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(var(--neutral-300) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.2;
+  background: url('public/road.jpg') no-repeat center / cover;
+  opacity: 0.4;
+  filter: blur(8px);
   z-index: 1;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1));
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -155,8 +171,6 @@ nav a.active::after {
   max-width: 800px;
   margin: 0 auto 20px;
   color: var(--dark);
-  position: relative;
-  z-index: 2;
   animation: fadeInUp 1s ease-out;
 }
 
@@ -165,8 +179,6 @@ nav a.active::after {
   gap: var(--space-md);
   justify-content: center;
   margin-top: var(--space-xl);
-  position: relative;
-  z-index: 2;
   animation: fadeInUp 1s ease-out 0.2s forwards;
 }
 
@@ -237,7 +249,7 @@ nav a.active::after {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
   transform: scaleX(0);
   transform-origin: left;
   transition: var(--transition-normal);
