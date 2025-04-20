@@ -170,7 +170,7 @@ nav a.active::after {
   font-size: clamp(2rem, 5vw, 3.5rem);
   max-width: 800px;
   margin: 0 auto 20px;
-  color: var(--dark);
+  color: var(--primary-dark);
   animation: fadeInUp 1s ease-out;
 }
 
@@ -195,12 +195,12 @@ nav a.active::after {
 }
 
 .btn.primary {
-  background-color: var(--primary);
+  background-color: var(--primary-light);
   color: white;
 }
 
 .btn.primary:hover {
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -208,7 +208,7 @@ nav a.active::after {
 .btn.secondary {
   background-color: transparent;
   color: var(--text);
-  border: 2px solid var(--primary);
+  border: 2px solid var(--primary-light);
 }
 
 .btn.secondary:hover {
@@ -219,14 +219,16 @@ nav a.active::after {
 
 /* Features Section */
 .features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--space-xl);
   padding: var(--space-2xl) var(--space-xl);
   background-color: white;
 }
 
 .feature-box {
+  max-width: 400px;
   background-color: white;
   padding: var(--space-xl);
   border-radius: 12px;
