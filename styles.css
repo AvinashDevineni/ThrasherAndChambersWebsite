@@ -408,13 +408,15 @@ nav a.active::after {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
 }
 
 .team-card {
+  min-width: 200px;
+  max-width: 240px;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -431,7 +433,7 @@ nav a.active::after {
 
 .team-img {
   width: 85%;
-  height: 170px;
+  height: auto;
   object-fit: cover;
   transition: var(--transition-slow);
   border-radius: 50%;
