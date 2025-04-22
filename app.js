@@ -101,3 +101,58 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
+document.getElementById('resources-link').addEventListener('mouseenter', () => {
+    if (document.getElementById('resources-dropdown') != null)
+        return;
+
+    const dropdown = document.createElement('div');
+    const dropdownElements = document.createElement('div');
+    dropdown.id = 'resources-dropdown';
+    dropdownElements.id = 'resources-dropdown-elements';
+    
+    const resources = [
+        { text: 'Newsletters', href: 'newsletters.html' },
+        { text: 'Compound Interest Calculator', href: 'calculator.html' },
+        { text: 'Quarterly Meetings', href: 'meetings.html' },
+        { text: 'Tax Resources', href: 'tax-resources.html' },
+    ];
+
+    resources.forEach(resource => {
+        const link = document.createElement('a');
+        link.href = resource.href;
+        link.textContent = resource.text;
+        dropdownElements.appendChild(link);
+    });
+
+    // Position the dropdown under the header
+    const header = document.querySelector('header');
+    const rect = header.getBoundingClientRect();
+    dropdown.style.top = `${rect.bottom}px`; // Changed from transform to top
+
+    // Add dropdown to the page
+    dropdown.appendChild(dropdownElements);
+    document.body.appendChild(dropdown);
+    
+    // Add active class after a brief delay to trigger transition
+    requestAnimationFrame(() => dropdown.classList.add('active'));
+});
+
+document.getElementById('resources-link').addEventListener('mouseleave', () => {
+    const dropdown = document.querySelector('.resources-dropdown');
+    if (dropdown) {
+        dropdown.addEventListener('mouseenter', () => {
+            dropdown.classList.add('active');
+        });
+        
+        dropdown.addEventListener('mouseleave', () => {
+            dropdown.classList.remove('active');
+            setTimeout(() => {
+                if (dropdown && dropdown.parentNode) {
+                    dropdown.parentNode.removeChild(dropdown);
+                }
+            }, 200);
+        });
+        
+        dropdown.classList.remove('active');
+    }
+});

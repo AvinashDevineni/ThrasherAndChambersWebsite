@@ -595,3 +595,43 @@ nav a.active::after {
   }
 }
 
+/* Resources Dropdown */
+#resources-dropdown {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: var(--primary-light);
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+#resources-dropdown.active {
+  display: grid;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#resources-dropdown-elements a {
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#resources-dropdown-elements {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#resources-dropdown a:hover {
+  background-color: var(--primary);
+}
