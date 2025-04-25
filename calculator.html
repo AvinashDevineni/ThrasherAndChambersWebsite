@@ -34,12 +34,12 @@
         <div class="calculator-form">
             <div class="form-group">
                 <label for="principal">Initial Investment ($)</label>
-                <input type="number" id="principal" placeholder="10000">
+                <input type="number" id="principal">
             </div>
             
             <div class="form-group">
                 <label for="interest">Annual Interest Rate (%)</label>
-                <input type="number" id="interest" placeholder="7">
+                <input type="number" id="interest">
             </div>
             
             <div class="form-group">
@@ -54,7 +54,22 @@
             
             <div class="form-group">
                 <label for="years">Time Period (Years)</label>
-                <input type="number" id="years" placeholder="10">
+                <input type="number" id="years">
+            </div>
+
+            <div class="form-group">
+                <label for="contribution">Contribution ($)</label>
+                <input type="number" id="contribution" value="0">
+            </div>
+
+            <div class="form-group">
+                <label for="contribution-frequency">Contribution Frequency</label>
+                <select id="contribution-frequency">
+                    <option value="daily">Daily</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="annually" selected>Annually</option>
+                </select>
             </div>
             
             <button id="calculate">Calculate Growth</button>

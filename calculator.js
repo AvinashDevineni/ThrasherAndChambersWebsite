@@ -1,4 +1,9 @@
+const principalInput = document.getElementById("principal");
+const interestRateInput = document.getElementById("interest");
+const yearsInput = document.getElementById("years");
 const compoundFrequencyInput = document.getElementById('compoundingFrequency');
+const contributionInput = document.getElementById('contribution');
+const contributionFrequencyInput = document.getElementById('contribution-frequency');
 const result = document.getElementById("result");
 document.getElementById("calculate").addEventListener("click", compoundInterest);
 
@@ -15,14 +20,29 @@ function getCompoundingFrequency() {
     }
 }
 
-function compoundInterest() {
-    const principal = parseFloat(document.getElementById("principal").value);
-    const interestRate = parseFloat(document.getElementById("interest").value);
-    const years = parseFloat(document.getElementById("years").value);
-    const compoundingFrequency = getCompoundingFrequency();
+function getContributionFrequency() {
+    switch (contributionFrequencyInput.value) {
+        case 'daily':
+            return 365;
+        case 'monthly':
+            return 12;
+        case 'quarterly':
+            return 4;
+        case 'annually':
+            return 1;
+    }
+}
 
-    if (isNaN(principal) || isNaN(interestRate) || isNaN(years)) {
-        result.textContent = 'Enter numbers for all fields';
+function compoundInterest() {
+    const principal = parseFloat(principalInput.value);
+    const interestRate = parseFloat(interestRateInput.value);
+    const years = parseFloat(yearsInput.value);
+    const compoundingFrequency = getCompoundingFrequency();
+    const contribution = parseFloat(contributionInput.value);
+    const contributionFrequency = getContributionFrequency();
+
+    if (isNaN(principal) || isNaN(interestRate) || isNaN(years) || isNaN(contribution)) {
+        result.textContent = 'Enter values for all fields';
         return;
     }
 
@@ -42,11 +62,28 @@ function compoundInterest() {
         return;
     }
 
+    if (contribution < 0) {
+        result.textContent = "Contribution cannot be negative";
+        return;
+    }
+    
     // Convert interest rate percentage --> decimal
     const decimalInterestRate = parseFloat(interestRate) / 100;
 
-    // Calculate with A = P(1 + r/n)^(nt)
-    const amount = principal * Math.pow(1 + (decimalInterestRate / compoundingFrequency), compoundingFrequency * years);
+    if (contribution == 0) {
+        // Calculate with A = P(1 + r/n)^(nt)
+        const amount = principal * Math.pow(1 + (decimalInterestRate / compoundingFrequency), compoundingFrequency * years);
+        // formatting to have 2 decimal places and commas
+        const formattedNum = (+amount.toFixed(2)).toLocaleString('en-US');
+        result.textContent = `Final Amount: $${formattedNum}`;
+    }
 
-    result.textContent = `Final Amount: $${amount.toFixed(2)}`;
+    else {
+        // Calculate with A = P(1 + r/n)^(nt)
+        const initialAmt = principal * Math.pow(1 + (decimalInterestRate / compoundingFrequency), compoundingFrequency * years);
+        const contributionAmt = contribution * contributionFrequency * (Math.pow(1 + decimalInterestRate / compoundingFrequency, compoundingFrequency * years) - 1) / decimalInterestRate;
+        // formatting to have 2 decimal places and commas
+        const formattedNum = (+(initialAmt + contributionAmt).toFixed(2)).toLocaleString('en-US');
+        result.textContent = `Final Amount: $${formattedNum}`;
+    }
 }
