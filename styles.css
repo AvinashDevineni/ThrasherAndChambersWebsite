@@ -315,6 +315,11 @@ nav a.active::after {
   margin: var(--space-sm) auto 0;
 }
 
+#services-grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -366,6 +371,10 @@ nav a.active::after {
 
 .card li {
   margin-bottom: 10px;
+}
+
+#smart-investments-card {
+  grid-column: span 2;
 }
 
 /* About Us Section */
@@ -586,12 +595,20 @@ nav a.active::after {
     max-width: 300px;
   }
   
-  #smart-investments-card {
-    grid-column: span 1;
-  }
-  
   .team-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
 }
 
+@media (max-width: 709px) {
+  #smart-investments-card {
+    grid-column: span 1;
+  }
+}
+
+@media (min-width: 1370px) {
+  .service-grid {
+    max-width: 1370px;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+  }
+}
