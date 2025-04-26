@@ -1,12 +1,11 @@
-// Create a new file called app.js and link it in your HTML files
 document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
-    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            nav.classList.add('scrolled');
         } else {
-            header.classList.remove('scrolled');
+            nav.classList.remove('scrolled');
         }
     });
     
@@ -101,3 +100,45 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
+document.getElementById('resources-link').addEventListener('click', () => {
+    if (document.getElementById('resources-dropdown') != null) {
+        const dropdown = document.getElementById('resources-dropdown');
+        if (dropdown.classList.contains('active')) {
+            dropdown.style.top = '0px';
+            dropdown.classList.remove('active');
+            return;
+        }
+    }
+
+    else {
+        const dropdown = createResourcesDropdown();
+        document.querySelector('header').appendChild(dropdown);
+    }
+
+    const dropdown = document.getElementById('resources-dropdown');
+    dropdown.classList.add('active');
+});
+
+function createResourcesDropdown() {
+    const dropdown = document.createElement('div');
+    const dropdownElements = document.createElement('div');
+    dropdown.id = 'resources-dropdown';
+    dropdownElements.id = 'resources-dropdown-elements';
+    
+    const resources = [
+        { text: 'Newsletters', href: 'newsletters.html' },
+        { text: 'Compound Interest Calculator', href: 'calculator.html' },
+        { text: 'Quarterly Meetings', href: 'meetings.html' },
+        { text: 'Tax Resources', href: 'tax-resources.html' },
+    ];
+
+    resources.forEach(resource => {
+        const link = document.createElement('a');
+        link.href = resource.href;
+        link.textContent = resource.text;
+        dropdownElements.appendChild(link);
+    });
+
+    dropdown.appendChild(dropdownElements);
+    return dropdown;
+}
