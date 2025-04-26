@@ -67,6 +67,7 @@ a:hover {
 /* Header & Navigation */
 header {
   position: fixed;
+  pointer-events: none;
   width: 100%;
   z-index: 1000;
 }
@@ -83,6 +84,7 @@ nav {
   box-shadow: var(--shadow-sm);
   padding: var(--space-md) var(--space-xl);
   transition: var(--transition-normal);
+  pointer-events: all;
 }
 
 nav.scrolled {
