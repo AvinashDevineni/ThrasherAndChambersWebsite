@@ -555,34 +555,49 @@ nav a.active::after {
   text-align: center;
 }
 
-#newsletters-list {
+#newsletters-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-md);
 }
 
 .newsletter {
   display: flex;
-  gap: var(--space-md);
-  box-shadow: var(--shadow-lg);
-  width: 45vw;
-  height: 200px;
-  padding: 20px;
-  border-radius: 12px;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  width: clamp(250px, 30vw, 300px);
+  height: 300px;
 }
 
-.newsletter > img {
-  height: 80%;
-  align-self: center;
-  width: auto;
+.newsletter:hover {
+  scale: 1.05;
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+}
+
+.newsletter-img {
+  width: 100%;
+  height: 200%;
+  object-fit: cover;
+  background-position: center;
 }
 
 .newsletter-info {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.newsletter-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1em;
 }
 
 /* Animations */
