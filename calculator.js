@@ -66,7 +66,7 @@ function compoundInterest() {
         result.textContent = "Contribution cannot be negative";
         return;
     }
-    
+
     // Convert interest rate percentage --> decimal
     const decimalInterestRate = parseFloat(interestRate) / 100;
 

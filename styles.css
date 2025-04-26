@@ -50,6 +50,7 @@ body {
   color: var(--text);
   background-color: var(--light);
   overflow-x: hidden;
+  height: 100%;
 }
 
 a {
@@ -514,9 +515,15 @@ nav.scrolled ~ #resources-dropdown {
 }
 
 /* Calculator specific styles */
+#calculator-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
 .calculator-container {
   max-width: 800px;
-  margin: 120px auto 60px;
   padding: 40px;
   background-color: white;
   border-radius: 12px;
