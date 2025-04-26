@@ -1,12 +1,11 @@
-// Create a new file called app.js and link it in your HTML files
 document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
-    const header = document.querySelector('header');
+    const nav = document.querySelector('nav');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
-            header.classList.add('scrolled');
+            nav.classList.add('scrolled');
         } else {
-            header.classList.remove('scrolled');
+            nav.classList.remove('scrolled');
         }
     });
     
@@ -101,10 +100,26 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
-document.getElementById('resources-link').addEventListener('mouseenter', () => {
-    if (document.getElementById('resources-dropdown') != null)
-        return;
+document.getElementById('resources-link').addEventListener('click', () => {
+    if (document.getElementById('resources-dropdown') != null) {
+        const dropdown = document.getElementById('resources-dropdown');
+        if (dropdown.classList.contains('active')) {
+            dropdown.style.top = '0px';
+            dropdown.classList.remove('active');
+            return;
+        }
+    }
 
+    else {
+        const dropdown = createResourcesDropdown();
+        document.querySelector('header').appendChild(dropdown);
+    }
+
+    const dropdown = document.getElementById('resources-dropdown');
+    dropdown.classList.add('active');
+});
+
+function createResourcesDropdown() {
     const dropdown = document.createElement('div');
     const dropdownElements = document.createElement('div');
     dropdown.id = 'resources-dropdown';
@@ -124,35 +139,6 @@ document.getElementById('resources-link').addEventListener('mouseenter', () => {
         dropdownElements.appendChild(link);
     });
 
-    // Position the dropdown under the header
-    const header = document.querySelector('header');
-    const rect = header.getBoundingClientRect();
-    dropdown.style.top = `${rect.bottom}px`; // Changed from transform to top
-
-    // Add dropdown to the page
     dropdown.appendChild(dropdownElements);
-    document.body.appendChild(dropdown);
-    
-    // Add active class after a brief delay to trigger transition
-    requestAnimationFrame(() => dropdown.classList.add('active'));
-});
-
-document.getElementById('resources-link').addEventListener('mouseleave', () => {
-    const dropdown = document.querySelector('.resources-dropdown');
-    if (dropdown) {
-        dropdown.addEventListener('mouseenter', () => {
-            dropdown.classList.add('active');
-        });
-        
-        dropdown.addEventListener('mouseleave', () => {
-            dropdown.classList.remove('active');
-            setTimeout(() => {
-                if (dropdown && dropdown.parentNode) {
-                    dropdown.parentNode.removeChild(dropdown);
-                }
-            }, 200);
-        });
-        
-        dropdown.classList.remove('active');
-    }
-});
+    return dropdown;
+}
