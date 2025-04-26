@@ -84,7 +84,11 @@ header.scrolled {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.logo {
+  align-self: flex-start; /* Align logo to the top */
 }
 
 .logo img {
@@ -96,6 +100,23 @@ nav ul {
   display: flex;
   list-style: none;
   gap: var(--space-lg);
+  padding: 0; /* Ensure no default padding */
+  margin: 0; /* Ensure no default margin */
+}
+
+.hamburger-icon {
+  display: none; /* Hide by default on larger screens */
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--primary);
+  padding: var(--space-sm);
+}
+
+.nav-links {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically align items */
 }
 
 nav a {
@@ -598,6 +619,36 @@ nav a.active::after {
   .team-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
+
+  /* Hamburger menu styles for mobile */
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+    width: 100%;
+    padding: var(--space-md) 0;
+  }
+
+  .nav-links {
+    display: none; /* Hide navigation links by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show navigation links when active */
+  }
+
+  .hamburger-icon {
+    display: block; /* Show hamburger icon on mobile */
+  }
 }
 
 @media (max-width: 709px) {
@@ -611,4 +662,18 @@ nav a.active::after {
     max-width: 1370px;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
   }
+}
+
+/* Footer styles */
+footer {
+  background-color: var(--neutral-100); /* Light background */
+  color: var(--text); /* Dark text */
+  text-align: center;
+  padding: var(--space-md) var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }

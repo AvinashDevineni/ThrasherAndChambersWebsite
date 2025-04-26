@@ -99,5 +99,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run the animation check on scroll and on page load
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll();
+
+    // Hamburger menu toggle
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburgerIcon && navLinks) {
+        hamburgerIcon.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+    }
 });
 
