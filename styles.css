@@ -103,14 +103,14 @@ nav ul {
   gap: var(--space-lg);
 }
 
-nav a {
+nav > ul a {
   color: var(--text);
   font-weight: 500;
   position: relative;
   padding: var(--space-xs) 0;
 }
 
-nav a::after {
+nav > ul a::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -121,8 +121,8 @@ nav a::after {
   transition: var(--transition-normal);
 }
 
-nav a:hover::after,
-nav a.active::after {
+nav > ul a:hover::after,
+nav > ul a.active::after {
   width: 100%;
 }
 

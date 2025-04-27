@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +10,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav>
-            <div class="logo">
-            <img src="public/logo.png" alt="Thrasher & Chambers Logo" />
-            </div>
+            <a href="/">
+                <div class="logo">
+                    <img src="public/logo.png" alt="Thrasher & Chambers Logo" />
+                </div>
+            </a>
             <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-            <li><a id="resources-link">Resources <img src="public/angle-down-solid.svg" width="15px"></a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#about-us">About Us</a></li>
+                <li><a href="/#contact">Contact Us</a></li>
+                <li><a id="resources-link">Resources <img src="public/angle-down-solid.svg" width="15px"></a></li>
             </ul>
         </nav>
     </header>
@@ -28,18 +32,18 @@
         <div class="calculator-container">
             <h1>Compound Interest Calculator</h1>
             <p>See how your investments can grow over time with the power of compound interest</p>
-            
+
             <div class="calculator-form">
                 <div class="form-group">
                     <label for="principal">Initial Investment ($)</label>
                     <input type="number" id="principal">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="interest">Annual Interest Rate (%)</label>
                     <input type="number" id="interest">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="compoundingFrequency">Compounding Frequency</label>
                     <select id="compoundingFrequency">
@@ -49,17 +53,17 @@
                         <option value="annually" selected>Annually</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="years">Time Period (Years)</label>
                     <input type="number" id="years">
                 </div>
-    
+
                 <div class="form-group">
                     <label for="contribution">Contribution ($)</label>
                     <input type="number" id="contribution" value="0">
                 </div>
-    
+
                 <div class="form-group">
                     <label for="contribution-frequency">Contribution Frequency</label>
                     <select id="contribution-frequency">
@@ -69,9 +73,9 @@
                         <option value="annually" selected>Annually</option>
                     </select>
                 </div>
-                
+
                 <button id="calculate">Calculate Growth</button>
-                
+
                 <div id="result"></div>
             </div>
         </div>
@@ -80,5 +84,5 @@
     <script src="calculator.js"></script>
     <script src="app.js"></script>
 </body>
-</html>
 
+</html>
