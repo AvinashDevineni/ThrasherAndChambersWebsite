@@ -1,5 +1,6 @@
 initializeTestimonialsSection();
 
+const animateOnScrollQuery = '.card, .feature-box, .team-card, .testimonial-card';
 document.addEventListener('DOMContentLoaded', function () {
     // Header scroll effect
     const nav = document.querySelector('nav');
@@ -76,26 +77,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Animate elements when they come into view
     const animateOnScroll = function () {
-        const elements = document.querySelectorAll('.card, .feature-box, .team-card');
-
+        const elements = document.querySelectorAll(animateOnScrollQuery);
         elements.forEach(element => {
             const position = element.getBoundingClientRect();
 
             // Check if element is in viewport
-            if (position.top < window.innerHeight * 0.8) {
-                element.style.transform = 'translateY(0)';
-                element.style.opacity = '1';
-            }
+            if (position.top < window.innerHeight * 0.8)
+                element.classList.remove('out-of-viewport');
         });
     };
 
     // Set initial state for elements
-    const elements = document.querySelectorAll('.card, .feature-box, .team-card');
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
+    const elements = document.querySelectorAll(animateOnScrollQuery);
+    elements.forEach(element => element.classList.add('out-of-viewport'));
 
     // Run the animation check on scroll and on page load
     window.addEventListener('scroll', animateOnScroll);
