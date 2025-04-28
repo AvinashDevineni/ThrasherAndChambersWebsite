@@ -64,6 +64,16 @@ a:hover {
   cursor: pointer;
 }
 
+section {
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+section > h2 {
+  font-size: 2rem;
+  color: var(--dark);
+  text-align: center;
+}
+
 /* Scroll Animation */
 .out-of-viewport {
   opacity: 0;
@@ -192,7 +202,6 @@ nav.scrolled ~ #resources-dropdown {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 80px 20px 40px;
   position: relative;
   overflow: hidden;
 }
@@ -228,7 +237,7 @@ nav.scrolled ~ #resources-dropdown {
   pointer-events: none;
 }
 
-.hero h1 {
+.hero > h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
   max-width: 800px;
   margin: 0 auto 20px;
@@ -285,7 +294,6 @@ nav.scrolled ~ #resources-dropdown {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-xl);
-  padding: var(--space-2xl) var(--space-xl);
   background-color: white;
 }
 
@@ -335,7 +343,6 @@ nav.scrolled ~ #resources-dropdown {
 
 /* Services Section */
 #services {
-  padding: 60px 40px;
   position: relative;
 }
 
@@ -355,15 +362,12 @@ nav.scrolled ~ #resources-dropdown {
   z-index: 1;
 }
 
-#services h2 {
-  text-align: center;
-  font-size: 2rem;
+#services > h2 {
   margin-bottom: 40px;
-  color: var(--dark);
   position: relative;
 }
 
-#services h2::after {
+#services > h2::after {
   content: '';
   display: block;
   width: 60px;
@@ -434,14 +438,11 @@ nav.scrolled ~ #resources-dropdown {
 
 /* Testimonials Section */
 #testimonials {
-  padding: var(--space-2xl) var(--space-lg);
   text-align: center;
   background: var(--light);
 }
 
 #testimonials > h2 {
-  font-size: 2rem;
-  color: var(--dark);
   margin-bottom: var(--space-sm);
 }
 
@@ -532,7 +533,6 @@ nav.scrolled ~ #resources-dropdown {
 
 /* About Us Section */
 #about-us {
-  padding: 60px 40px;
   background: var(--neutral-100);
   text-align: center;
   position: relative;
@@ -542,31 +542,28 @@ nav.scrolled ~ #resources-dropdown {
 #about-us::before {
   content: '';
   position: absolute;
-  top: 0;
   right: 0;
   width: 300px;
   height: 300px;
   background-color: rgba(0, 84, 166, 0.05);
-  border-radius: 50%;
+  border-radius: 100%;
   transform: translate(100px, -100px);
 }
 
-#about-us h2 {
-  font-size: 2rem;
-  color: var(--dark);
-  margin-bottom: 10px;
+#about-us > h2 {
+  margin-bottom: var(--space-sm);
 }
 
 .about-subheading {
   font-weight: bold;
   font-size: 1.1rem;
-  margin-bottom: 15px;
+  margin-bottom: var(--space-sm);
   color: var(--primary);
 }
 
 .about-description {
   max-width: 700px;
-  margin: 0 auto 40px;
+  margin: 0 auto var(--space-xl);
   font-size: 1rem;
   color: var(--text);
 }
@@ -574,11 +571,14 @@ nav.scrolled ~ #resources-dropdown {
 .team-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: var(--space-lg);
   justify-content: center;
 }
 
 .team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-width: 200px;
   max-width: 240px;
   background: white;
@@ -586,33 +586,31 @@ nav.scrolled ~ #resources-dropdown {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: var(--transition-normal);
-  padding: 15px;
+  padding: var(--space-lg) var(--space-md) var(--space-lg);
   text-align: center;
 }
 
-.team-img {
+.team-card > img {
   width: 85%;
-  height: auto;
   object-fit: cover;
   transition: var(--transition-slow);
   border-radius: 50%;
-  margin: 15px auto 10px;
+  /* margin: 15px auto 10px; */
   display: block;
 }
 
-.team-card:hover .team-img {
+.team-card:hover > img {
   transform: scale(1.05);
 }
 
-.team-card h3 {
-  margin-top: 15px;
+.team-card > h3 {
+  margin-top: var(--space-md);
   color: var(--primary);
 }
 
-.team-card .title {
+.team-card > .title {
   color: var(--neutral-600);
   font-size: 0.95rem;
-  padding-bottom: 15px;
 }
 
 /* Calculator specific styles */
