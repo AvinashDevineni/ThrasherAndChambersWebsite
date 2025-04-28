@@ -1,3 +1,5 @@
+initializeTestimonialsSection();
+
 document.addEventListener('DOMContentLoaded', function () {
     // Header scroll effect
     const nav = document.querySelector('nav');
@@ -141,4 +143,105 @@ function createResourcesDropdown() {
 
     dropdown.appendChild(dropdownElements);
     return dropdown;
+}
+
+function initializeTestimonialsSection() {
+    initializeTestimonials();
+    initializeGoogleRating();
+}
+
+function initializeTestimonials() {
+    const testimonials = document.getElementById('testimonials-grid');
+    // fetch below from server but hardcoded for now
+    const testimonialsData = [
+        {stars: 5, name: 'Jean', date: '4/27/2025', review: "I have been extremely happy with dealing with Mark and Trey. They explain things for me since I don't know much about dealing with my retirement. They are very easy to understand answer all my questions-sometimes the same question. Trey goes out of his way to help me and I totally trust him and Mark. I really appreciate them.", },
+        {stars: 5, name: 'Navaneeth', date: '4/11/2025', review: "Great wealth management firm in Bentonville. Trey Taylor was patient, professional, and helped me build a solid plan for the future. Highly recommend!", },
+    ]
+
+    testimonialsData.forEach(testimonialData => {
+        const stars = document.createElement('div');
+        stars.className = 'stars';
+        while (testimonialData.stars > 0) {
+            const starImg = document.createElement('img');
+            if (testimonialData.stars >= 0.7) {
+                starImg.src = 'public/star.svg';
+                starImg.alt = 'Star';
+            }
+
+            else {
+                starImg.src = 'public/half-star.svg';
+                starImg.alt = 'Half star';
+            }
+
+            console.log(starImg);
+
+            stars.appendChild(starImg);
+            testimonialData.stars--;
+        }
+
+        const review = document.createElement('p');
+        review.className = 'testimonial-text';
+        review.textContent = `"${testimonialData.review}"`;
+
+        const author = document.createElement('p');
+        author.className = 'testimonial-author';
+        author.textContent = testimonialData.name;
+
+        const date = document.createElement('p');
+        date.className = 'testimonial-date';
+        date.textContent = testimonialData.date;
+
+        const data = document.createElement('div');
+        data.className = 'testimonial-data';
+        data.appendChild(author);
+        data.appendChild(date);
+
+        const testimonial = document.createElement('div');
+        testimonial.className = 'testimonial-card';
+        testimonial.appendChild(stars);
+        testimonial.appendChild(review);
+        testimonial.appendChild(data);
+
+        testimonials.append(testimonial);
+    });
+}
+
+function initializeGoogleRating() {
+    // get below from server but hardcoded for now
+    let rating = 5;
+    let ratingVal = rating;
+    const stars = document.createElement('div');
+    stars.className = 'stars';
+    while (ratingVal > 0) {
+        const starImg = document.createElement('img');
+        if (ratingVal >= 0.7) {
+            starImg.src = 'public/star.svg';
+            starImg.alt = 'Star';
+        }
+
+        else {
+            starImg.src = 'public/half-star.svg';
+            starImg.alt = 'Half star';
+        }
+
+        console.log(starImg);
+
+        stars.appendChild(starImg);
+        ratingVal--;
+    }
+
+    const googleRatingText = document.createElement('p');
+    googleRatingText.textContent = `${rating.toFixed(1)} star rating`;
+
+    const googleRatingImg = document.createElement('img');
+    googleRatingImg.src = 'public/google-icon.png';
+
+    const googleRatingSection = document.createElement('div');
+    googleRatingSection.id = 'google-rating-info';
+    googleRatingSection.appendChild(googleRatingText);
+    googleRatingSection.appendChild(googleRatingImg);
+
+    const googleRating = document.getElementById('google-rating');
+    googleRating.appendChild(stars);
+    googleRating.appendChild(googleRatingSection);
 }
