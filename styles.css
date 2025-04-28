@@ -470,6 +470,7 @@ nav.scrolled ~ #resources-dropdown {
   padding: var(--space-lg);
   max-width: 400px;
   text-align: left;
+  transition: var(--transition-normal);
 }
 
 .stars {
