@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // will fetch from DB later
     const dummyData = [
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'How to navigate the new financial landscape amidst tumulus times', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'How to navigate the new financial landscape', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'Prepare now for potential tax law changes', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'What to expect on Election Day and beyond', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'Politics and the economy: Could Washington derail a soft landing?', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'AI: The vast potential and looming questions of the new digital frontier', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: 'China today: How to invest in a complex time', date: '4/22/2025', imgUrl: 'public/road.jpg'},
         {title: 'Another Example', date: '4/22/2025', imgUrl: 'public/road.jpg'},
     ]
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     dummyData.forEach(data => {
         const newsletter = document.createElement('div');
-        newsletter.className = 'newsletter';
+        newsletter.classList.add('newsletter', 'card-hover');
         // if (data.title === 'Another Example')
         //     newsletter.className = 'newsletter-v2';
 

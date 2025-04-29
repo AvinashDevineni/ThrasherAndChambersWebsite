@@ -783,8 +783,6 @@ nav.scrolled ~ #resources-dropdown {
 }
 
 .newsletter:hover {
-  scale: 1.05;
-  box-shadow: var(--shadow-lg);
   cursor: pointer;
 }
 
@@ -805,6 +803,7 @@ nav.scrolled ~ #resources-dropdown {
 }
 
 .newsletter-title {
+  flex-grow: 1;
   font-weight: bold;
   font-size: 1.2em;
   line-height: 1em;
