@@ -1,4 +1,5 @@
-initializeTestimonialsSection();
+if (document.getElementById('testimonials'))
+    initializeTestimonialsSection();
 
 const animateOnScrollQuery = '.card, .feature-box, .team-card, .testimonial-card';
 document.addEventListener('DOMContentLoaded', function () {
