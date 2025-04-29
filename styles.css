@@ -257,6 +257,7 @@ nav.scrolled ~ #resources-dropdown {
 .btn {
   display: inline-block;
   padding: var(--space-md) var(--space-xl);
+  border: none;
   border-radius: 50px;
   font-weight: 600;
   text-align: center;
@@ -611,6 +612,50 @@ nav.scrolled ~ #resources-dropdown {
 .team-card > .title {
   color: var(--neutral-600);
   font-size: 0.95rem;
+}
+
+/* Disclosures Section */
+#disclosures {
+  background: linear-gradient(to bottom left, var(--light), var(--neutral-200));
+}
+
+#disclosures > h2 {
+  margin-bottom: var(--space-xl);
+}
+
+#disclosures-list {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#disclosure {
+  display: flex;
+  gap: var(--space-sm);
+  flex-direction: column;
+  align-items: center;
+  width: clamp(200px, 25vw, 250px);
+  text-align: center;
+}
+
+#disclosure > p {
+  color: var(--dark)
+}
+
+#disclosure > img {
+  width: 170px;
+  height: 170px;
+  border-radius: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+#disclosure > a {
+  margin-top: auto;
+}
+
+#disclosure button {
+  font-size: 1rem;
 }
 
 /* Calculator specific styles */
