@@ -1,3 +1,8 @@
+// Testimonials image paths
+const starPath = 'public/icons/star.svg';
+const halfStarPath = 'public/icons/half-star.svg';
+const googleIconPath = 'public/testimonials-imgs/google-icon.png';
+
 if (document.getElementById('testimonials'))
     initializeTestimonialsSection();
 
@@ -159,12 +164,12 @@ function initializeTestimonials() {
         while (testimonialData.stars > 0) {
             const starImg = document.createElement('img');
             if (testimonialData.stars >= 0.7) {
-                starImg.src = 'public/star.svg';
+                starImg.src = starPath;
                 starImg.alt = 'Star';
             }
 
             else {
-                starImg.src = 'public/half-star.svg';
+                starImg.src = halfStarPath;
                 starImg.alt = 'Half star';
             }
 
@@ -210,12 +215,12 @@ function initializeGoogleRating() {
     while (ratingVal > 0) {
         const starImg = document.createElement('img');
         if (ratingVal >= 0.7) {
-            starImg.src = 'public/star.svg';
+            starImg.src = starPath;
             starImg.alt = 'Star';
         }
 
         else {
-            starImg.src = 'public/half-star.svg';
+            starImg.src = halfStarPath;
             starImg.alt = 'Half star';
         }
 
@@ -229,7 +234,7 @@ function initializeGoogleRating() {
     googleRatingText.textContent = `${rating.toFixed(1)} star rating`;
 
     const googleRatingImg = document.createElement('img');
-    googleRatingImg.src = 'public/google-icon.png';
+    googleRatingImg.src = googleIconPath;
 
     const googleRatingSection = document.createElement('div');
     googleRatingSection.id = 'google-rating-info';

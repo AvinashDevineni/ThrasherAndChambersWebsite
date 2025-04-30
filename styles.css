@@ -218,7 +218,7 @@ nav.scrolled ~ #resources-dropdown {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('public/road.jpg') no-repeat center / cover;
+  background: url('public/backgrounds/road.jpg') no-repeat center / cover;
   opacity: 0.4;
   filter: blur(3px);
   z-index: 1;
@@ -358,7 +358,7 @@ nav.scrolled ~ #resources-dropdown {
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url('public/pattern.jpg') center / cover;
+  background: url('public/backgrounds/pattern.jpg') center / cover;
   opacity: 0.05;
   z-index: 1;
 }
