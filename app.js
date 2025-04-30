@@ -3,8 +3,43 @@ if (document.getElementById('testimonials'))
 
 const animateOnScrollQuery = '.card, .feature-box, .team-card, .testimonial-card';
 document.addEventListener('DOMContentLoaded', function () {
-    // Header scroll effect
+    /* ------------------------------------------------------
+     * Mobile navigation hamburger setup
+     * ----------------------------------------------------*/
     const nav = document.querySelector('nav');
+
+    // Create hamburger button (three stacked spans)
+    const hamburger = document.createElement('button');
+    hamburger.className = 'hamburger';
+    hamburger.setAttribute('aria-label', 'Toggle navigation');
+    hamburger.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `;
+
+    // Insert the hamburger as the last direct child of the nav (before the ul for natural flex order on desktop)
+    nav.insertBefore(hamburger, nav.querySelector('ul'));
+
+    // Toggle nav "open" state on click
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+    });
+
+    // Close the mobile menu when a nav link is clicked (helps with single-page anchor navigation)
+    nav.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            // Keep menu open when clicking "Resources" so its submenu can expand
+            if (anchor.id === 'resources-link') return;
+
+            // Only close if we are currently in mobile layout
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('open');
+            }
+        });
+    });
+
+    // Header scroll effect
     window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
@@ -97,7 +132,54 @@ document.addEventListener('DOMContentLoaded', function () {
     animateOnScroll();
 });
 
-document.getElementById('resources-link').addEventListener('click', () => {
+// Attach the listener after DOMContent so the element exists
+document.addEventListener('DOMContentLoaded', () => {
+    const resLink = document.getElementById('resources-link');
+    if (resLink) resLink.addEventListener('click', handleResourcesClick);
+});
+
+// Separate listener for Resources link (handles both desktop + mobile)
+function handleResourcesClick(e) {
+    // Prevent default (stops any page jump)
+    e.preventDefault();
+
+    // If on mobile, toggle a submenu inside the nav instead of the desktop dropdown
+    if (window.innerWidth <= 768) {
+        const resourcesLink = document.getElementById('resources-link');
+        const resourcesItem = resourcesLink.parentElement; // li element
+
+        // Check if submenu already exists
+        const existing = resourcesItem.querySelector('.mobile-resources-submenu');
+        if (existing) {
+            existing.remove();
+            return;
+        }
+
+        // Build submenu
+        const submenu = document.createElement('ul');
+        submenu.className = 'mobile-resources-submenu';
+
+        const resources = [
+            { text: 'Newsletters', href: 'newsletters.html' },
+            { text: 'Compound Interest Calculator', href: 'calculator.html' },
+            { text: 'Quarterly Meetings', href: 'meetings.html' },
+            { text: 'Tax Resources', href: 'tax-resources.html' },
+        ];
+
+        resources.forEach(resource => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = resource.href;
+            link.textContent = resource.text;
+            li.appendChild(link);
+            submenu.appendChild(li);
+        });
+
+        resourcesItem.appendChild(submenu);
+        return;
+    }
+
+    // ---- Desktop behaviour (unchanged) ----
     if (document.getElementById('resources-dropdown') != null) {
         const dropdown = document.getElementById('resources-dropdown');
         if (dropdown.classList.contains('active')) {
@@ -105,16 +187,14 @@ document.getElementById('resources-link').addEventListener('click', () => {
             dropdown.classList.remove('active');
             return;
         }
-    }
-
-    else {
+    } else {
         const dropdown = createResourcesDropdown();
         document.querySelector('header').appendChild(dropdown);
     }
 
     const dropdown = document.getElementById('resources-dropdown');
     dropdown.classList.add('active');
-});
+}
 
 function createResourcesDropdown() {
     const dropdown = document.createElement('div');
