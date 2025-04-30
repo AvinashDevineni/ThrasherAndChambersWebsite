@@ -126,7 +126,7 @@ function createResourcesDropdown() {
         { text: 'Newsletters', href: 'newsletters.html' },
         { text: 'Compound Interest Calculator', href: 'calculator.html' },
         { text: 'Quarterly Meetings', href: 'meetings.html' },
-        { text: 'Tax Resources', href: 'tax-resources.html' },
+        { text: 'Tax Resources', href: 'public/docs/2025 Tax Document.pdf' },
     ];
 
     resources.forEach(resource => {
