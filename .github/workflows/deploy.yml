@@ -26,16 +26,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Prepare site directory from .deploy-include
+      - name: Prepare site directory excluding files in .deploy-exclude
         run: |
           mkdir site
-          while read line; do
-            if [ -e "$line" ]; then
-              cp -r "$line" site/
-            else
-              echo "Warning: $line not found."
-            fi
-          done < .deploy-include
+          rsync -av --exclude-from='.deploy-exclude' ./ site/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

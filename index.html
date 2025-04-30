@@ -10,42 +10,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
   <header>
-    <div class="logo">
-      <img src="public/logo.png" alt="Thrasher & Chambers Logo" />
-    </div>
     <nav>
-      <button class="hamburger-icon" aria-label="Toggle navigation menu">
-        &#9776; <!-- Hamburger icon character -->
-      </button>
-      <div class="nav-links">
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#about-us">About Us</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a href="calculator.html">Resources</a></li>
-        </ul>
-      </div>
+      <a href="/">
+        <div class="logo">
+          <img src="public/logo.png" alt="Thrasher & Chambers Logo" />
+        </div>
+      </a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a id="resources-link">Resources <img src="public/angle-down-solid.svg" width="15px"></a></li>
+      </ul>
     </nav>
   </header>
 
   <section class="hero">
     <h1>Thorough financial planning to achieve your long-term vision</h1>
     <div class="hero-buttons">
-      <a href="#contact" class="btn primary">Book a Call</a>
+      <a href="#contact" class="btn primary">Book a Consultation</a>
       <a href="#services" class="btn secondary">Learn More</a>
     </div>
   </section>
 
-    <section class="features">
-    <div class="feature-box">
+  <section class="features">
+    <div class="feature-box card-hover">
       <img src="public/map.svg" alt="Holistic Planning Icon"/>
       <h3>Holistic Planning</h3>
       <p>We go the extra mile and create a unique plan built for your specific financial situation and future goals.</p>
     </div>
-    <div class="feature-box">
+    <div class="feature-box card-hover">
       <img src="public/messages.svg" alt="Personalized Advice Icon"/>
       <h3>Personalized Advice</h3>
       <p>Our rigorous and disciplined methodology ensure that you receive custom advice from our team.</p>
@@ -56,23 +52,23 @@
     <h2>Explore Our Comprehensive Services</h2>
     <div id="services-grid-wrapper">
       <div class="service-grid">
-        <div class="card">
+        <div class="service-card card-hover">
           <h3>Financial Planning</h3>
           <p>Address your distinct long-term goals based on your unique circumstances, including tax efficiency and wealth preservation, to build an interactive plan that accounts for life's "what ifs".</p>
         </div>
-        <div class="card">
+        <div class="service-card card-hover">
           <h3>Asset Management</h3>
           <p>Tailored investment strategies that consider tax, time horizon, and wealth transfer opportunities, leveraging both active investment managers and cost-effective exchange-traded funds (ETFs).</p>
         </div>
-        <div class="card">
+        <div class="service-card card-hover">
           <h3>Retirement Planning</h3>
           <p>Personalized strategies to ensure a secure and fulfilling retirement. Our planning factors in individual cash-flow needs, philanthropy, and legacy building so you can focus on living the good life.</p>
         </div>
-        <div class="card">
+        <div class="service-card card-hover">
           <h3>Insurance/Annuities</h3>
           <p>A variety of insurance and annuity solutions aimed at protecting assets, providing steady income, and supporting financial security.</p>
         </div>
-        <div class="card" id="smart-investments-card">
+        <div class="service-card card-hover" id="smart-investments-card">
           <h3>Smart Investments</h3>
           <p>Diversification is key, so we offer various different investments for you, including:</p>
           <ul>
@@ -84,10 +80,13 @@
         </div>
       </div>
     </div>
-  </section>  
+  </section>
 
   <section id="testimonials">
-    <!-- Placeholder for Testimonials -->
+    <h2>Testimonials</h2>
+    <p>Hear from our clients.</p>
+    <div id="testimonials-grid"></div>
+    <div id="google-rating"></div>
   </section>
 
   <section id="about-us">
@@ -98,40 +97,67 @@
     </p>
   
     <div class="team-grid">
-      <div class="team-card">
-        <img src="public/team/mark-chambers.png" alt="Mark Chambers" class="team-img" />
+      <div class="team-card card-hover">
+        <img src="public/team/mark-chambers.png" alt="Mark Chambers"/>
         <h3>Mark Chambers</h3>
         <p class="title">President/CEO</p>
       </div>
-      <div class="team-card">
-        <img src="public/team/david-thrasher.png" alt="David Thrasher" class="team-img" />
+      <div class="team-card card-hover">
+        <img src="public/team/david-thrasher.png" alt="David Thrasher"/>
         <h3>David Thrasher</h3>
         <p class="title">Financial Consultant Emeritus</p>
       </div>
-      <div class="team-card">
-        <img src="public/team/trey-taylor.png" alt="Trey Taylor" class="team-img" />
+      <div class="team-card card-hover">
+        <img src="public/team/trey-taylor.png" alt="Trey Taylor"/>
         <h3>Trey Taylor</h3>
         <p class="title">Financial Consultant</p>
       </div>
-      <div class="team-card">
-        <img src="public/team/kim-ruopp.png" alt="Kim Ruopp" class="team-img" />
+      <div class="team-card card-hover">
+        <img src="public/team/kim-ruopp.png" alt="Kim Ruopp"/>
         <h3>Kim Ruopp</h3>
         <p class="title">Office Manager/Assistant</p>
       </div>
-      <div class="team-card">
-        <img src="public/team/mary-presley.png" alt="Mary Presley" class="team-img" />
+      <div class="team-card card-hover">
+        <img src="public/team/mary-presley.png" alt="Mary Presley"/>
         <h3>Mary Presley</h3>
         <p class="title">Assistant</p>
       </div>
     </div>
   </section>  
 
-  <section id="contact">
-    <!-- Placeholder for Contact -->
+  <!-- <section id="contact">
+  </section> -->
+
+  <section id="disclosures">
+    <h2>Disclosures</h2>
+    <div id="disclosures-list">
+      <div id="disclosure">
+        <img src="public/handshake.png" alt="Handshake">
+        <p>Customer Relationship Summary (CRS)</p>
+        <a href="public/docs/CRS.pdf"><button class="btn primary">Learn More</button></a>
+      </div>
+      <div id="disclosure">
+        <img src="public/vault.png" alt="Vault">
+        <p>Business Continuity Plan</p>
+        <a href="public/docs/Business Continuity Plan.pdf"><button class="btn primary">Learn More</button></a>
+      </div>
+      <div id="disclosure"> 
+        <img src="public/security-camera.jpg" alt="Security camera">
+        <p>Privacy Statement</p>
+        <a href="public/docs/Privacy Statement.pdf"><button class="btn primary">Learn More</button></a>
+      </div>
+      <div id="disclosure">
+        <img src="public/businesspeople-walking.jpg" alt="Businessmen walking and talking">
+        <p>Regulation Best Interest (Reg BI)</p>
+        <a href="public/docs/Reg BI.pdf"><button class="btn primary">Learn More</button></a>
+      </div>
+    </div>
   </section>
+
   <script src="app.js"></script>
-<footer>
-    <p>&copy; 2025 Thrasher & Chambers Wealth Management, LLC. All rights reserved.</p>
+
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear());</script> Thrasher & Chambers. All rights reserved.</p>
   </footer>
 </body>
 </html>
