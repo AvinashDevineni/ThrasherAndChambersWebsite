@@ -240,7 +240,7 @@ nav > ul a.active::after {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: var(--transition-normal);
   pointer-events: none;
-  z-index: 2;
+  z-index: 0;
 }
 
 nav.scrolled ~ #resources-dropdown {
@@ -294,11 +294,12 @@ nav.scrolled ~ #resources-dropdown {
     background: var(--primary-light);
     animation: dropdownReveal var(--transition-normal) forwards;
     overflow: hidden;
+    gap: var(--space-sm);
   }
 
   .mobile-resources-submenu li a {
     display: block;
-    padding: var(--space-md) var(--space-sm);
+    padding: var(--space-sm) var(--space-sm);
     color: white;
     font-weight: 500;
   }
