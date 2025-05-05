@@ -126,6 +126,86 @@ nav ul {
   gap: var(--space-lg);
 }
 
+/* ---------------------------------------------------------
+ * Mobile navigation
+ * -------------------------------------------------------*/
+
+/* Hamburger button hidden by default (desktop) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Responsive behaviour */
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* Collapse nav list */
+  nav ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    /* Remove vertical padding while collapsed so nothing peeks out */
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+
+  /* Expand when nav is open */
+  nav.open ul {
+    /* When menu is open restore full padding and allow it to expand */
+    padding: var(--space-md);
+    max-height: 90vh; /* allow space for submenu */
+    overflow: visible; /* allow nested submenu to be fully visible */
+  }
+
+  /* Transform hamburger into X when open */
+  nav.open .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  nav.open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  nav.open .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
 nav > ul a {
   color: var(--text);
   font-weight: 500;
@@ -160,6 +240,7 @@ nav > ul a.active::after {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: var(--transition-normal);
   pointer-events: none;
+  z-index: 0;
 }
 
 nav.scrolled ~ #resources-dropdown {
@@ -189,8 +270,48 @@ nav.scrolled ~ #resources-dropdown {
   justify-content: space-evenly;
 }
 
+@media (max-width: 768px) {
+  #resources-dropdown-elements {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
 #resources-dropdown a:hover {
   background-color: var(--primary);
+}
+
+/* ---------------------------------------------------------
+ * Mobile Resources submenu (inside hamburger menu)
+ * -------------------------------------------------------*/
+
+@media (max-width: 768px) {
+  .mobile-resources-submenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: var(--primary-light);
+    animation: dropdownReveal var(--transition-normal) forwards;
+    overflow: hidden;
+    gap: var(--space-sm);
+  }
+
+  .mobile-resources-submenu li a {
+    display: block;
+    padding: var(--space-sm) var(--space-sm);
+    color: white;
+    font-weight: 500;
+  }
+
+  .mobile-resources-submenu li a:hover {
+    background: var(--primary);
+  }
+
+  @keyframes dropdownReveal {
+    from { max-height: 0; opacity: 0; }
+    to   { max-height: 400px; opacity: 1; }
+  }
 }
 
 /* Hero Section */
@@ -853,6 +974,36 @@ nav.scrolled ~ #resources-dropdown {
   .team-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
+
+  /* Hamburger menu styles for mobile */
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+    width: 100%;
+    padding: var(--space-md) 0;
+  }
+
+  .nav-links {
+    display: none; /* Hide navigation links by default on mobile */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show navigation links when active */
+  }
+
+  .hamburger-icon {
+    display: block; /* Show hamburger icon on mobile */
+  }
 }
 
 @media (max-width: 709px) {
@@ -866,4 +1017,17 @@ nav.scrolled ~ #resources-dropdown {
     max-width: 1370px;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
   }
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--dark);
+  color: var(--light);
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
