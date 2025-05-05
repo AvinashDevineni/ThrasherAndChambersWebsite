@@ -158,6 +158,7 @@ nav ul {
 
   /* Collapse nav list */
   nav ul {
+    display: none;
     position: absolute;
     top: 100%;
     right: 0;
@@ -175,6 +176,7 @@ nav ul {
 
   /* Expand when nav is open */
   nav.open ul {
+    display: flex;
     /* When menu is open restore full padding and allow it to expand */
     padding: var(--space-md);
     max-height: 90vh; /* allow space for submenu */
