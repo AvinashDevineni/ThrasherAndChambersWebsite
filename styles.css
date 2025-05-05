@@ -195,19 +195,6 @@ nav ul {
 }
 }
 
-/* Footer Styles */
-footer {
-  background-color: var(--dark);
-  color: var(--light);
-  text-align: center;
-  padding: var(--space-lg) var(--space-md);
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
 nav > ul a {
   color: var(--text);
   font-weight: 500;
@@ -1023,13 +1010,22 @@ nav.scrolled ~ #resources-dropdown {
 
 /* Footer Styles */
 footer {
-  background-color: var(--dark);
-  color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  color: var(--dark);
   text-align: center;
   padding: var(--space-lg) var(--space-md);
 }
 
-footer p {
+footer > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg)
+}
+
+footer > p {
   margin: 0;
   font-size: 0.9rem;
 }
