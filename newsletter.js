@@ -1,23 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     // will fetch from DB later
     const dummyData = [
-        {title: 'How to navigate the new financial landscape', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'Prepare now for potential tax law changes', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'What to expect on Election Day and beyond', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'Politics and the economy: Could Washington derail a soft landing?', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'AI: The vast potential and looming questions of the new digital frontier', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'China today: How to invest in a complex time', date: '4/22/2025', imgUrl: 'public/road.jpg'},
-        {title: 'Another Example', date: '4/22/2025', imgUrl: 'public/road.jpg'},
+        {title: '5 Growth Themes For The Next 5 Years', date: '4/22/2025', imgExtension: 'png'},
+        {title: 'How to Handle Market Declines', date: '4/22/2025', imgExtension: 'jpg'},
+        {title: 'Understanding Tariffs in 5 Charts', date: '4/22/2025', imgExtension: 'jpg'},
+        {title: 'What Can a 529 Be Used For', date: '4/22/2025', imgExtension: 'png'},
     ]
 
     const newsletters = document.getElementById('newsletters-container');
 
     dummyData.forEach(data => {
-        const newsletter = document.createElement('div');
+        const newsletter = document.createElement('a');
+        newsletter.href = `public/newsletter/docs/${data.title}.pdf`;
+        newsletter.target = '_blank';
         newsletter.classList.add('newsletter', 'card-hover');
-        // if (data.title === 'Another Example')
-        //     newsletter.className = 'newsletter-v2';
-
+        
         const title = document.createElement('p');
         title.className = 'newsletter-title';
         title.textContent = data.title;
@@ -33,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const img = document.createElement('div');
         img.className = 'newsletter-img';
-        img.style.background = `url(${data.imgUrl})`;
+        img.style.background = `url('public/newsletter/imgs/${data.title}.${data.imgExtension}')`;
         
         newsletter.appendChild(img);
         newsletter.appendChild(info);
