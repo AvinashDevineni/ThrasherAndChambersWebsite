@@ -264,8 +264,6 @@ function initializeTestimonials() {
                 starImg.alt = 'Half star';
             }
 
-            console.log(starImg);
-
             stars.appendChild(starImg);
             testimonialData.stars--;
         }
@@ -314,8 +312,6 @@ function initializeGoogleRating() {
             starImg.src = halfStarPath;
             starImg.alt = 'Half star';
         }
-
-        console.log(starImg);
 
         stars.appendChild(starImg);
         ratingVal--;
