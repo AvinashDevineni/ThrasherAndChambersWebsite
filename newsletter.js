@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const img = document.createElement('div');
         img.className = 'newsletter-img';
-        img.style.background = `url('public/newsletter/imgs/${data.title}.${data.imgExtension}')`;
+        img.style.backgroundImage = `url('public/newsletter/imgs/${data.title}.${data.imgExtension}')`;
         
         newsletter.appendChild(img);
         newsletter.appendChild(info);

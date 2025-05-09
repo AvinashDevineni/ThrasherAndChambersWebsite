@@ -899,7 +899,7 @@ nav.scrolled ~ #resources-dropdown {
 .newsletter-img {
   width: 100%;
   height: 200%;
-  object-fit: cover;
+  background-size: cover;
   background-position: center;
 }
 
