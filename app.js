@@ -246,6 +246,7 @@ function initializeTestimonials() {
     const testimonialsData = [
         {stars: 5, name: 'Jean', date: '4/22/2025', review: "I have been extremely happy with dealing with Mark and Trey. They explain things for me since I don't know much about dealing with my retirement. They are very easy to understand answer all my questions-sometimes the same question. Trey goes out of his way to help me and I totally trust him and Mark. I really appreciate them.", },
         {stars: 5, name: 'Navaneeth', date: '4/21/2025', review: "Great wealth management firm in Bentonville. Trey Taylor was patient, professional, and helped me build a solid plan for the future. Highly recommend!", },
+        {stars: 5, name: 'Sharon Taylor', 'date': '5/1/2025', review: "Working with them has been a great experience! They are easy to get ahold of when I need their help and always make me feel important as a client. Mark and Trey are great at explaining complicated topics in simple terms I can understand. I trust their team and would highly recommend giving them a call for any of your financial planning or investment needs!", },
     ]
 
     testimonialsData.forEach(testimonialData => {
