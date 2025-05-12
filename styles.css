@@ -118,7 +118,7 @@ nav.scrolled {
 
 .logo img {
   margin-left: var(--space-md);
-  height: 45px;
+  height: clamp(25px, 3vw, 45px);
   transition: var(--transition-normal);
 }
 
@@ -1157,6 +1157,7 @@ nav.scrolled~#resources-dropdown {
 /* Footer Styles */
 footer {
   display: flex;
+  gap: var(--space-md);
   align-items: center;
   justify-content: space-between;
   background-color: white;
@@ -1167,8 +1168,15 @@ footer {
 
 footer>div {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-lg)
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-right: var(--space-md);
+}
+
+footer img {
+  width: clamp(100px, 5vw, 150px);
 }
 
 footer>p {
