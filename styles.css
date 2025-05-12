@@ -963,6 +963,63 @@ nav.scrolled~#resources-dropdown {
   line-height: 1em;
 }
 
+/* Quarterly Meetings Styles */
+#meetings {
+  padding: 100px 20px 20px;
+}
+
+#meetings > h1, #meetings-description {
+  text-align: center;
+}
+
+#meetings-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.meeting {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  width: clamp(250px, 30vw, 300px);
+  height: 300px;
+}
+
+.meeting:hover {
+  cursor: pointer;
+}
+
+.meeting > img {
+  width: 100%;
+  height: 200%;
+  background-size: cover;
+  background-position: center;
+}
+
+.meeting-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  overflow: hidden;
+}
+
+.meeting-details > h3 {
+  flex-grow: 1;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1em;
+}
+
+.meeting-details > *:not(h3) {
+  line-height: 1.3;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
