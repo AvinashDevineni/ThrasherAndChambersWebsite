@@ -116,7 +116,7 @@ nav.scrolled {
 }
 
 .logo img {
-  height: 40px;
+  height: 45px;
   transition: var(--transition-normal);
 }
 
@@ -759,6 +759,14 @@ nav.scrolled~#resources-dropdown {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#contact-us-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-sm);
 }
 
 #contact-us-subheading {
