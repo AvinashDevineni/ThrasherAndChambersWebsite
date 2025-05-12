@@ -759,6 +759,7 @@ nav.scrolled~#resources-dropdown {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: var(--transition-normal);
 }
 
 #contact-us-text-content {
@@ -790,6 +791,7 @@ nav.scrolled~#resources-dropdown {
   gap: var(--space-md);
   justify-content: center;
   flex-wrap: wrap;
+  transition: var(--transition-normal);
 }
 
 #disclosure {

@@ -6,7 +6,7 @@ const googleIconPath = 'public/testimonials-imgs/google-icon.png';
 if (document.getElementById('testimonials'))
     initializeTestimonialsSection();
 
-const animateOnScrollQuery = '.card, .feature-box, .team-card, .testimonial-card';
+const animateOnScrollQuery = '.card, .feature-box, .team-card, .testimonial-card, #contact-us-content, #disclosures-list';
 document.addEventListener('DOMContentLoaded', function () {
     /* ------------------------------------------------------
      * Mobile navigation hamburger setup
