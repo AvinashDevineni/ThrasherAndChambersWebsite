@@ -118,7 +118,7 @@ nav.scrolled {
 
 .logo img {
   margin-left: var(--space-md);
-  height: clamp(25px, 3vw, 45px);
+  height: clamp(27px, 3vw, 35px);
   transition: var(--transition-normal);
 }
 
