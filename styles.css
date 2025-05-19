@@ -40,11 +40,17 @@
   box-sizing: border-box;
 }
 
+body, html {
+  min-height: 100vh;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family);
   line-height: 1.6;
   color: var(--text);
@@ -1164,6 +1170,7 @@ footer {
   color: var(--dark);
   text-align: center;
   padding: var(--space-lg) var(--space-md);
+  margin-top: auto;
 }
 
 footer>div {

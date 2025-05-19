@@ -322,6 +322,7 @@ function initializeGoogleRating() {
 
     const googleRatingImg = document.createElement('img');
     googleRatingImg.src = googleIconPath;
+    googleRatingImg.alt = 'Google icon';
 
     const googleRatingSection = document.createElement('div');
     googleRatingSection.id = 'google-rating-info';

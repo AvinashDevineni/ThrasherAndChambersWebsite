@@ -1,15 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // will fetch from DB later
-    const dummyData = [
-        {title: '5 Growth Themes For The Next 5 Years', date: '4/22/2025', imgExtension: 'png'},
-        {title: 'How to Handle Market Declines', date: '4/22/2025', imgExtension: 'jpg'},
-        {title: 'Understanding Tariffs in 5 Charts', date: '4/22/2025', imgExtension: 'jpg'},
-        {title: 'What Can a 529 Be Used For', date: '4/22/2025', imgExtension: 'png'},
+    const newslettersData = [
+        // EXAMPLE NEWSLETTERS:
+        // {title: '5 Growth Themes For The Next 5 Years', date: '4/22/2025', imgExtension: 'png'},
+        // {title: 'How to Handle Market Declines', date: '4/22/2025', imgExtension: 'jpg'},
+        // {title: 'Understanding Tariffs in 5 Charts', date: '4/22/2025', imgExtension: 'jpg'},
+        // {title: 'What Can a 529 Be Used For', date: '4/22/2025', imgExtension: 'png'},
     ]
 
     const newsletters = document.getElementById('newsletters-container');
 
-    dummyData.forEach(data => {
+    if (newslettersData.length === 0) {
+        const noNewsletters = document.createElement('p');
+        noNewsletters.textContent = 'No newsletters available currently.';
+        newsletters.appendChild(noNewsletters);
+        return;
+    }
+
+    newslettersData.forEach(data => {
         const newsletter = document.createElement('a');
         newsletter.href = `public/newsletter/docs/${data.title}.pdf`;
         newsletter.target = '_blank';

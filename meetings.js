@@ -2,21 +2,29 @@ initializeInfoMeetings();
 
 function initializeInfoMeetings() {
     const meetings = [
-        {
-            title: "Learn About Tariffs",
-            date: "5/12/2025",
-            time: "10:00 AM",
-            meetingLink: "",
-            image: "public/meetings/tariffs.jpg"
-        },
-        {
-            title: "Understanding Trade Agreements",
-            date: "5/19/2025",
-            time: "2:00 PM",
-            meetingLink: "",
-            image: "public/meetings/trade-agreements.png"
-        }
+        // EXAMPLE MEETINGS:
+        // {
+        //     title: "Learn About Tariffs",
+        //     date: "5/12/2025",
+        //     time: "10:00 AM",
+        //     meetingLink: "",
+        //     image: "public/meetings/tariffs.jpg"
+        // },
+        // {
+        //     title: "Understanding Trade Agreements",
+        //     date: "5/19/2025",
+        //     time: "2:00 PM",
+        //     meetingLink: "",
+        //     image: "public/meetings/trade-agreements.png"
+        // }
     ];
+
+    if (meetings.length === 0) {
+        const noMeetingsMessage = document.createElement("p");
+        noMeetingsMessage.textContent = "No meetings scheduled at this time.";
+        document.getElementById("meetings-list").appendChild(noMeetingsMessage);
+        return;
+    }
 
     const meetingsList = document.getElementById("meetings-list");
     for (const meeting of meetings) {
